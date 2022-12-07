@@ -991,6 +991,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &238346916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238346918}
+  - component: {fileID: 238346917}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &238346917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238346916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c7f602098e88c4fa7be2e4a7a49757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlayerStats: {fileID: 1201884900}
+--- !u!4 &238346918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238346916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.716007, y: 613.24365, z: 60.174988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &239997195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,7 +3493,9 @@ GameObject:
   - component: {fileID: 1201884894}
   - component: {fileID: 1201884897}
   - component: {fileID: 1201884890}
-  - component: {fileID: 1201884896}
+  - component: {fileID: 1201884901}
+  - component: {fileID: 1201884902}
+  - component: {fileID: 1201884900}
   - component: {fileID: 1201884893}
   - component: {fileID: 1201884895}
   - component: {fileID: 1201884898}
@@ -3544,40 +3591,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4205144, y: 0.012501895}
   m_EdgeRadius: 0
---- !u!114 &1201884896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201884888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a3fd86da4570fe4394b277dc03bcdc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxEnergy: 100
-  maxSleep: 100
-  maxPoopie: 100
-  maxHappiness: 100
-  maxCleanness: 100
-  currentEnergy: 0
-  currentSleep: 0
-  currentPoopie: 0
-  currentHappiness: 0
-  currentCleanness: 0
-  currentLove: 0
-  hunger: 0.25
-  tireness: 0.1
-  toiletmeter: 0.4
-  sadness: 0.1
-  dirtiness: 0.3
-  EnergyBar: {fileID: 1273791464}
-  SleepBar: {fileID: 14512018}
-  PoopBar: {fileID: 398991926}
-  HappyBar: {fileID: 1513584956}
-  CleanBar: {fileID: 1607105646}
-  LoveBar: {fileID: 549399148}
 --- !u!212 &1201884897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3662,6 +3675,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca8394deba4b994dbe2a18f4db68592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1201884900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201884888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3a57b3affdccd46b56123684e949e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1201884901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201884888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f354714bf96904409db60effb28eb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1201884902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201884888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70222c1743f27b34f8bffcff60d416d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergy: 100
+  maxSleep: 100
+  maxPoopie: 100
+  maxHappiness: 100
+  maxCleanness: 100
+  testEnergy: 0
+  hunger: 0.25
+  tireness: 0.15
+  toiletmeter: 0.4
+  sadness: 0.1
+  dirtiness: 0.3
+  EnergyBar: {fileID: 1273791464}
+  SleepBar: {fileID: 14512018}
+  PoopBar: {fileID: 398991926}
+  HappyBar: {fileID: 1513584956}
+  CleanBar: {fileID: 1607105646}
+  LoveBar: {fileID: 549399148}
 --- !u!1 &1204326380
 GameObject:
   m_ObjectHideFlags: 0
@@ -6248,7 +6314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2035951433
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6328,7 +6394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4bce6f3052a3c4c98e85a5b683bbec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEnergy: 0
+  testEnergy: {fileID: 0}
 --- !u!1 &2041996749
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class InteractableObjects : MonoBehaviour
 {
-    public float currentEnergy;
-    
+    public PlayerNeeds testEnergy;
+            
     // Start is called before the first frame update
     void Start()
     {
-             
     }
 
     // Update is called once per frame
@@ -20,7 +19,8 @@ public class InteractableObjects : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+
+        
         
     }
 }
