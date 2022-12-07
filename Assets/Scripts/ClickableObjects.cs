@@ -22,7 +22,6 @@ public class ClickableObjects : MonoBehaviour
         Player.GetComponent<SpriteRenderer>().enabled = false;
         Menu.SetActive(true);
         StatusMenu.SetActive(false);
-        
     }
 
     private void OnMouseOver()
