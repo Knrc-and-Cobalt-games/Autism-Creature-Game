@@ -5,11 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    #region Initialize Bars
-        public EnergyBar EnergyBar;
-        public SleepBar SleepBar;
-    #endregion
-
     // Start is called before the first frame update
     public Rigidbody2D rb;
     public float accelerationTime = 2f;

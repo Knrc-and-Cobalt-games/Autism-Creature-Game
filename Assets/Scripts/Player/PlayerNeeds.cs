@@ -12,12 +12,12 @@ public class PlayerNeeds : MonoBehaviour
         public float maxHappiness = 100;
         public float maxCleanness = 100;
         [Space]
-        public float currentEnergy;
-        public float currentSleep;
-        public float currentPoopie;
-        public float currentHappiness;
-        public float currentCleanness;
-        public float currentLove;
+        private float currentEnergy;
+        private float currentSleep;
+        private float currentPoopie;
+        private float currentHappiness;
+        private float currentCleanness;
+        private float currentLove;
         [Space]
     #endregion
 
@@ -30,6 +30,11 @@ public class PlayerNeeds : MonoBehaviour
         public float dirtiness = 0.3f;
         [Space]
     #endregion
+    #region 
+    [Header("====Food Items====")]
+        public float Shrimp_addEnergy = 15f;
+
+    #endregion
     #region Initialize Bars
     [Header("Link Slider to each Bar")]
         public EnergyBar EnergyBar;
@@ -39,6 +44,7 @@ public class PlayerNeeds : MonoBehaviour
         public CleanBar CleanBar;
         public LoveBar LoveBar;
     #endregion
+
 
 
 
@@ -57,6 +63,7 @@ public class PlayerNeeds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Overtime drain
         currentEnergy -= hunger * Time.deltaTime;
         currentSleep -= tireness * Time.deltaTime;
         currentPoopie -= toiletmeter * Time.deltaTime;
@@ -64,38 +71,69 @@ public class PlayerNeeds : MonoBehaviour
         currentCleanness -= dirtiness * Time.deltaTime;
         currentLove = currentEnergy + currentSleep + currentPoopie + currentHappiness + currentCleanness;
 
+        //Check when a Valuable is 0 or 100
         if(currentEnergy <= 0)
         {
             currentEnergy = 0;
         }
+        if(currentEnergy >= maxEnergy)
+        {
+            currentEnergy = maxEnergy;
+        }
+
         
         if(currentSleep <= 0)
         {
             currentSleep = 0;
         }
+        if(currentSleep >= maxSleep)
+        {
+            currentSleep = maxSleep;
+        }
+
         
         if(currentPoopie <= 0)
         {
             currentPoopie = 0;
         }
+        if(currentPoopie >= maxPoopie)
+        {
+            currentPoopie = maxPoopie;
+        }
+
         
         if(currentHappiness <= 0)
         {
             currentHappiness = 0;
+        }
+        if(currentHappiness >= maxHappiness)
+        {
+            currentHappiness = maxHappiness;
         }
         
         if(currentCleanness <= 0)
         {
             currentCleanness = 0;
         }
+        if(currentCleanness >= maxCleanness)
+        {
+            currentCleanness = maxCleanness;
+        }
     
-
+        //Set Status Slider to current Valuable 
         EnergyBar.SetEnergy(currentEnergy);
         SleepBar.SetSleep(currentSleep); 
         PoopBar.SetPoopie(currentPoopie);
         HappyBar.SetHappiness(currentHappiness);
         CleanBar.SetCleanness(currentCleanness);
         LoveBar.SetLoveness(currentLove);   
+
+
+        //Food Item Constructor 
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            currentEnergy += Shrimp_addEnergy;
+        }
 
 
     }
