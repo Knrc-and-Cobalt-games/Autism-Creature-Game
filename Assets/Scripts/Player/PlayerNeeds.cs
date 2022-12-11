@@ -4,280 +4,137 @@ using UnityEngine;
 
 public class PlayerNeeds : MonoBehaviour
 {
-    // Fields
-    float _maxEnergy;
-    float _maxSleep;
-    float _maxPoopie;
-    float _maxHappiness;
-    float _maxCleanness;
+    #region Initialize Valuables
+    [Header("Maximum Values for Needs")]
+        public float maxEnergy = 100;
+        public float maxSleep = 100;
+        public float maxPoopie = 100;
+        public float maxHappiness = 100;
+        public float maxCleanness = 100;
+        [Space]
+        private float currentEnergy;
+        private float currentSleep;
+        private float currentPoopie;
+        private float currentHappiness;
+        private float currentCleanness;
+        private float currentLove;
+        [Space]
+    #endregion
 
-    float _currentEnergy;
-    float _currentSleep;
-    float _currentPoopie;
-    float _currentHappiness;
-    float _currentCleanness;
-    float _currentLove;
+    #region Natrual decreasing things
+    [Header("Natrual decreasing things")]
+        public float hunger = 0.25f;
+        public float tireness = 0.15f;
+        public float toiletmeter = 0.4f;
+        public float sadness = 0.1f;
+        public float dirtiness = 0.3f;
+        [Space]
+    #endregion
+    #region 
+    [Header("====Food Items====")]
+        public float Shrimp_addEnergy = 15f;
 
-    // Properties
-    public float Energy
+    #endregion
+    #region Initialize Bars
+    [Header("Link Slider to each Bar")]
+        public EnergyBar EnergyBar;
+        public SleepBar SleepBar;
+        public PoopBar PoopBar;
+        public HappyBar HappyBar;
+        public CleanBar CleanBar;
+        public LoveBar LoveBar;
+    #endregion
+
+
+
+
+
+
+    // Start is called before the first frame update
+    void Start()
     {
-        get
-        {
-            return _currentEnergy;
-        }
-        set
-        {
-            _currentEnergy = value;
-        }
+        currentEnergy = maxEnergy;
+        currentSleep = maxSleep;    
+        currentPoopie = maxPoopie;
+        currentHappiness = maxHappiness;
+        currentCleanness = maxCleanness;
     }
 
-    public float MaxEnergy
+    // Update is called once per frame
+    void Update()
     {
-        get
-        {
-            return _maxEnergy;
-        }
-        set
-        {
-            _maxEnergy = value;
-        }
-    }
-        public float Sleep
-    {
-        get
-        {
-            return _currentSleep;
-        }
-        set
-        {
-            _currentSleep = value;
-        }
-    }
+        //Overtime drain
+        currentEnergy -= hunger * Time.deltaTime;
+        currentSleep -= tireness * Time.deltaTime;
+        currentPoopie -= toiletmeter * Time.deltaTime;
+        currentHappiness -= sadness * Time.deltaTime;
+        currentCleanness -= dirtiness * Time.deltaTime;
+        currentLove = currentEnergy + currentSleep + currentPoopie + currentHappiness + currentCleanness;
 
-    public float MaxSleep
-    {
-        get
+        //Check when a Valuable is 0 or 100
+        if(currentEnergy <= 0)
         {
-            return _maxSleep;
+            currentEnergy = 0;
         }
-        set
+        if(currentEnergy >= maxEnergy)
         {
-            _maxSleep = value;
+            currentEnergy = maxEnergy;
         }
-    }
 
-        public float Poopie
-    {
-        get
+        
+        if(currentSleep <= 0)
         {
-            return _currentPoopie;
+            currentSleep = 0;
         }
-        set
+        if(currentSleep >= maxSleep)
         {
-            _currentPoopie = value;
+            currentSleep = maxSleep;
         }
-    }
 
-    public float MaxPoopie
-    {
-        get
+        
+        if(currentPoopie <= 0)
         {
-            return _maxPoopie;
+            currentPoopie = 0;
         }
-        set
+        if(currentPoopie >= maxPoopie)
         {
-            _maxPoopie = value;
+            currentPoopie = maxPoopie;
         }
-    }
 
-        public float Happiness
-    {
-        get
+        
+        if(currentHappiness <= 0)
         {
-            return _currentHappiness;
+            currentHappiness = 0;
         }
-        set
+        if(currentHappiness >= maxHappiness)
         {
-            _currentHappiness = value;
+            currentHappiness = maxHappiness;
         }
-    }
-
-    public float MaxHappiness
-    {
-        get
+        
+        if(currentCleanness <= 0)
         {
-            return _maxHappiness;
+            currentCleanness = 0;
         }
-        set
+        if(currentCleanness >= maxCleanness)
         {
-            _maxHappiness = value;
+            currentCleanness = maxCleanness;
         }
-    }
-
-        public float Cleanness
-    {
-        get
-        {
-            return _currentCleanness;
-        }
-        set
-        {
-            _currentCleanness = value;
-        }
-    }
-
-    public float MaxCleanness
-    {
-        get
-        {
-            return _maxCleanness;
-        }
-        set
-        {
-            _maxCleanness = value;
-        }
-    }
-
-        public float Love
-    {
-        get
-        {
-            return _currentLove;
-        }
-        set
-        {
-            _currentLove = value;
-        }
-    }
-
-    // Constructor
-    public PlayerNeeds(float energy, float maxEnergy, float sleep, float maxSleep, float poopie, float maxPoopie, float happiness, float maxHappiness, float cleanness, float maxCleanness, float Love)
-    {
-        _currentEnergy = energy;
-        _maxEnergy = maxEnergy;
-
-        _currentSleep = sleep;
-        _maxSleep = maxSleep;
-
-        _currentPoopie = poopie;
-        _maxPoopie = maxPoopie;
-
-        _currentHappiness = happiness;
-        _maxHappiness = maxHappiness;
-
-        _currentCleanness = cleanness;
-        _maxCleanness = maxCleanness;
-
-        _currentLove = energy + sleep + poopie + happiness + cleanness;
-
-    }
-
-    // Methods
-    public void DrainEnergy(float rmEnergy)
-    {
-        if (_currentEnergy > 0)
-        {
-            _currentEnergy -= rmEnergy;
-        }
-    }
-
-    public void DrainSleep(float rmSleep)
-    {
-        if (_currentSleep > 0)
-        {
-            _currentSleep -= rmSleep;
-        }
-    }
     
-    public void DrainPoopie(float rmPoopie)
-    {
-        if (_currentPoopie > 0)
-        {
-            _currentPoopie -= rmPoopie;
-        }
-    }
-
-    public void DrainHappiness(float rmHappiness)
-    {
-        if (_currentHappiness > 0)
-        {
-            _currentHappiness -= rmHappiness;
-        }
-    }
-
-    public void DrainCleanness(float rmCleanness)
-    {
-        if (_currentCleanness > 0)
-        {
-            _currentCleanness -= rmCleanness;
-        }
-    }
-    public void DrainLove(float rmLove)
-    {
-        if (_currentLove > 0)
-        {
-            _currentLove -= rmLove;
-        }
-    }
+        //Set Status Slider to current Valuable 
+        EnergyBar.SetEnergy(currentEnergy);
+        SleepBar.SetSleep(currentSleep); 
+        PoopBar.SetPoopie(currentPoopie);
+        HappyBar.SetHappiness(currentHappiness);
+        CleanBar.SetCleanness(currentCleanness);
+        LoveBar.SetLoveness(currentLove);   
 
 
-    public void GainEnergy(float addEnergy)
-    {
-        if (_currentEnergy < _maxEnergy)
+        //Food Item Constructor 
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            _currentEnergy += addEnergy;
+            currentEnergy += Shrimp_addEnergy;
         }
-        if (_currentEnergy > _maxEnergy)
-        {
-            _currentEnergy = _maxEnergy;
-        }
-    }
 
-    public void GainSleep(float addSleep)
-    {
-         if (_currentSleep < _maxSleep)
-        {
-            _currentSleep += addSleep;
-        }
-        if (_currentSleep > _maxSleep)
-        {
-            _currentSleep = _maxSleep;
-        }
-    }
-    
-    public void GainPoopie(float addPoopie)
-    {
-        if (_currentPoopie < _maxPoopie)
-        {
-            _currentPoopie += addPoopie;
-        }
-        if (_currentPoopie > _maxPoopie)
-        {
-            _currentPoopie = _maxPoopie;
-        }
-    }
 
-    public void GainHappiness(float addHappiness)
-    {
-        if (_currentHappiness < _maxHappiness)
-        {
-            _currentHappiness += addHappiness;
-        }
-        if (_currentHappiness > _maxHappiness)
-        {
-            _currentHappiness = _maxHappiness;
-        }
-    }
-
-    public void GainCleanness(float addCleanness)
-    {
-        if (_currentCleanness < _maxCleanness)
-        {
-            _currentCleanness += addCleanness;
-        }
-        if (_currentCleanness > _maxCleanness)
-        {
-            _currentCleanness = _maxCleanness;
-        }
     }
 }
