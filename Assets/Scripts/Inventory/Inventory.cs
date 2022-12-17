@@ -9,12 +9,7 @@ public class Inventory
     public Inventory() {
         itemList = new List<Item>();
 
-        AddItem(new Item { itemType = Item.ItemType.Juice, amount = 1});
-        AddItem(new Item { itemType = Item.ItemType.Shrimp, amount = 1});
-        AddItem(new Item { itemType = Item.ItemType.Chicken, amount = 1});
-        AddItem(new Item { itemType = Item.ItemType.HotChocolate, amount = 1});
-        AddItem(new Item { itemType = Item.ItemType.HotChocolate, amount = 1});
-        AddItem(new Item { itemType = Item.ItemType.Shrimp, amount = 1});
+
         Debug.Log(itemList.Count);
     }
 
