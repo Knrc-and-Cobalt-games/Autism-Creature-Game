@@ -14,7 +14,7 @@ public class LoveBar : MonoBehaviour
         slider.value = lovePoints;
     }
 
-    public void SetHealth(float lovePoints)
+    public void SetStatus(float lovePoints)
     {
         slider.value = lovePoints;
     }

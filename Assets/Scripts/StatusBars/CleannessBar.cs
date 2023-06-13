@@ -14,7 +14,7 @@ public class CleannessBar : MonoBehaviour
         slider.value = cleanPoints;
     }
 
-    public void SetHealth(float cleanPoints)
+    public void SetStatus(float cleanPoints)
     {
         slider.value = cleanPoints;
     }

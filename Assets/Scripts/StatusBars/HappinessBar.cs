@@ -14,7 +14,7 @@ public class HappinessBar : MonoBehaviour
         slider.value = happyPoints;
     }
 
-    public void SetHealth(float happyPoints)
+    public void SetStatus(float happyPoints)
     {
         slider.value = happyPoints;
     }

@@ -14,7 +14,7 @@ public class SleepBar : MonoBehaviour
         slider.value = sleepPoints;
     }
 
-    public void SetHealth(float sleepPoints)
+    public void SetStatus(float sleepPoints)
     {
         slider.value = sleepPoints;
     }

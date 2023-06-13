@@ -14,7 +14,7 @@ public class PoopieBar : MonoBehaviour
         slider.value = poopiePoints;
     }
 
-    public void SetHealth(float poopiePoints)
+    public void SetStatus(float poopiePoints)
     {
         slider.value = poopiePoints;
     }

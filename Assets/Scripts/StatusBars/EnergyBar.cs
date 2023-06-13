@@ -14,7 +14,7 @@ public class EnergyBar : MonoBehaviour
         slider.value = energyPoints;
     }
 
-    public void SetHealth(float energyPoints)
+    public void SetStatus(float energyPoints)
     {
         slider.value = energyPoints;
     }

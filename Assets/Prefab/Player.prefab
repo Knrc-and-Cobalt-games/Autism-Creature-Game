@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6539837754113977851}
+  - component: {fileID: 2787091104090242573}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -32,6 +33,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2787091104090242573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539837754113977850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f79c093d3b127f4d9407c4521c13d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lovePoints: 0
+  energyPoints: 100
+  cleanPoints: 100
+  sleepPoints: 100
+  poopiePoints: 100
+  happyPoints: 100
 --- !u!1 &6539837755314664178
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,6 +61,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6539837755314664179}
   - component: {fileID: 6539837755314664176}
+  - component: {fileID: 2092370372}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -116,3 +136,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2092370372
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539837755314664178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24e1241a343a5dc42b6353600ab30cc5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
