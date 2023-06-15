@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128af2942b75d0f4680b47e81a51a5b9, type: 3}
+  m_Name: Toast
+  m_EditorClassIdentifier: 
+  itemName: Toast
+  itemSprite: {fileID: 21300000, guid: 2399ea23483b1554d9b827c46040f79a, type: 3}
+  cost: 15
+  item: {fileID: 11400000, guid: 237021f4b44f8224ea104c615f3e9e3b, type: 2}

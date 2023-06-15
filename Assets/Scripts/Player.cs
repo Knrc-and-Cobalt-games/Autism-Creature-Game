@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
+    [Header("Capitalism")]
+    public int coins;
+    public int passiveIncomeCoins;
+    public float passiveIncomeTimer;
+    private float defaultPassiveIncomeTimer;
+    [SerializeField] private ShopManager shopmanager;
+    public TMP_Text coinUI;
     [Header("Status Variables")]
     public float lovePoints;
     public float energyPoints = 100f;
@@ -34,6 +42,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CoinDisplayManager();
+        defaultPassiveIncomeTimer = passiveIncomeTimer;
     }
 
     // Update is called once per frame
@@ -41,6 +51,7 @@ public class Player : MonoBehaviour
     {
         LovePointsCalculate();
         StatusDrain();
+        AddPassiveCoins();
 
         _loveBar.SetStatus(lovePoints);
         _cleannessBar.SetStatus(cleanPoints);
@@ -95,6 +106,23 @@ public class Player : MonoBehaviour
         } else if (happyPoints <= 0f)
         {
             happyPoints = 0f;
+        }
+    }
+
+    public void CoinDisplayManager()
+    {
+        coinUI.text = "Coins: " + coins.ToString();
+    }
+
+    public void AddPassiveCoins()
+    {
+        passiveIncomeTimer -= Time.deltaTime;
+        if(passiveIncomeTimer <= 0)
+        {
+            coins += passiveIncomeCoins;
+            passiveIncomeTimer = defaultPassiveIncomeTimer;
+            CoinDisplayManager();
+            shopmanager.CheckPurchaseable();
         }
     }
 }
